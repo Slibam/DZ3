@@ -1,42 +1,60 @@
 ﻿//Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный по модулю массив.
-int size = 8;
-Random rand = new Random();
-int[] numbers = new int[size];
-
-for (int i = 0; i < size; i++)
+void FillArrau(int[] nums)
 {
-    numbers[i]=rand.Next(-100, 101);
-}
-
-Console.WriteLine("Дан массив");
-Console.Write("[");
-for (int i = 0; i < size; i++)
-{
-    Console.Write($"{numbers[i]}, ");
-}
-Console.WriteLine("]");
-
-int temp;
-for (int i = 0; i < numbers.Length - 1; i++)
-{
-    for (int j = i + 1; j < numbers.Length; j++)
+    int size = nums.Length;
+    Random rand = new Random();
+    for (int i = 0; i < size; i++)
     {
-        if (Math.Abs(numbers[i]) > Math.Abs(numbers[j]))
+        nums[i] = rand.Next(-100, 101);
+    }
+}
+
+void SortMass(int[] numbe)
+{
+    int temp;
+    for (int i = 0; i < numbe.Length - 1; i++)
+    {
+        for (int j = i + 1; j < numbe.Length; j++)
         {
-            temp = numbers[i];
-            numbers[i] = numbers[j];
-            numbers[j] = temp;
+            if (Math.Abs(numbe[i]) > Math.Abs(numbe[j]))
+            {
+                temp = numbe[i];
+                numbe[i] = numbe[j];
+                numbe[j] = temp;
+            }
         }
     }
 }
-Console.WriteLine( );
-Console.WriteLine("Вывод отсортированного массива");
-Console.Write("[");
-for (int i = 0; i < size; i++)
+
+void Vivod(int []nums)
 {
-    Console.Write($"{numbers[i]}, ");
+    int size = nums.Length;
+    Console.Write("[");
+    for (int i = 0; i < size; i++)
+    {
+        Console.Write($"{nums[i]}, ");
+    }
+    Console.WriteLine("]");
 }
-Console.Write("]");
+
+void Zadanie3()
+{
+    int size = 8;
+    int[] numbers = new int[size];
+
+    FillArrau(numbers);
+
+    Console.WriteLine("Дан массив");
+    Vivod(numbers);
+
+    SortMass(numbers);
+
+    Console.WriteLine();
+    Console.WriteLine("Вывод отсортированного массива");
+    Vivod(numbers);
+}
+Zadanie3();
+
 
 
 
