@@ -1,4 +1,16 @@
 ﻿//Напишите программу, которая задаёт массив из 8 случайных целых чисел и выводит отсортированный по модулю массив.
+void Zadanie3()
+{
+    int size = 8;
+    int[] numbers = new int[size];
+    FillArrau(numbers);
+    Console.WriteLine("Дан массив");
+    Vivod(numbers);
+    SortMass(numbers);
+    Console.WriteLine();
+    Console.WriteLine("Вывод отсортированного массива");
+    Vivod(numbers);
+}
 void FillArrau(int[] nums)
 {
     int size = nums.Length;
@@ -8,7 +20,6 @@ void FillArrau(int[] nums)
         nums[i] = rand.Next(-100, 101);
     }
 }
-
 void SortMass(int[] numbe)
 {
     int temp;
@@ -25,7 +36,6 @@ void SortMass(int[] numbe)
         }
     }
 }
-
 void Vivod(int []nums)
 {
     int size = nums.Length;
@@ -35,23 +45,6 @@ void Vivod(int []nums)
         Console.Write($"{nums[i]}, ");
     }
     Console.WriteLine("]");
-}
-
-void Zadanie3()
-{
-    int size = 8;
-    int[] numbers = new int[size];
-
-    FillArrau(numbers);
-
-    Console.WriteLine("Дан массив");
-    Vivod(numbers);
-
-    SortMass(numbers);
-
-    Console.WriteLine();
-    Console.WriteLine("Вывод отсортированного массива");
-    Vivod(numbers);
 }
 Zadanie3();
 
